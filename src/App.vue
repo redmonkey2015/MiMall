@@ -4,13 +4,22 @@
   </div>
 </template>
 <script>
-import storage from './storage'
+//import storage from './storage'
 export default {
   name: 'app',
+  data() {
+    return {
+      resp:{}
+    }
+  },
   mounted() {
-    //storage.setItem('key1','value1')
-    //storage.setItem('user',{name: 'pc'})
-    storage.setItem('user', {name: 'pc'}, 'passport')
+    // this.axios.get('/mock/user/login.json').then(function() {
+      
+    // })
+
+    this.axios.get('/user/login').then((resp)=>{
+      this.resp = resp
+    })
   }
 }
 </script>

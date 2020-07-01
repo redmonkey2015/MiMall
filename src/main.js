@@ -5,12 +5,16 @@ import axios from 'axios';
 import VueAxios from 'vue-axios'
 
 import App from './App.vue'
-import evn from './env.js'
+//import evn from './env.js'
 
+const mock = true
+if (mock) {
+  require('./mock/api')
+}
 axios.defaults.baseURL = '/api'
 axios.defaults.timeout = 8000
 
-axios.defaults.baseURL = evn.baseURL
+//axios.defaults.baseURL = evn.baseURL
 
 axios.interceptors.response.use(function(response) {
   let returnData = response.data
